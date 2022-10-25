@@ -29,8 +29,38 @@ void FillArray(int[,] matr)
     }
 }
 
-int[,] matrix = new int[3, 5];
+int[,] ChangeArray(int[,] matr)
+{
+    int[,] changed = new int[matr.GetLength(0), matr.GetLength(0)];
+    for(int i = 0; i < changed.GetLength(0); i++)
+    {
+        for (int j = 0; j < changed.GetLength(1); j++)
+        {
+            changed[j,i] = matr[i,j];
+        }
+    }
+    return changed;
+}
 
+Console.Write("Введите количество строк: ");
+int m = int.Parse(Console.ReadLine()??"0");
+Console.Write("Введите количество столбцов: ");
+int n = int.Parse(Console.ReadLine()??"0");
+
+if (m!=n)
+{
+    Console.WriteLine("Поменять строки местами в данном массиве невозможно.");
+    return;
+}
+
+
+int[,] matrix = new int[m, n];
+Console.WriteLine("Массив:");
+Console.WriteLine();
 FillArray(matrix);
 PrintArray(matrix);
+
 Console.WriteLine();
+int[,] ChangedArray = ChangeArray(matrix);
+PrintArray(ChangedArray);
+FillArray(ChangedArray);
