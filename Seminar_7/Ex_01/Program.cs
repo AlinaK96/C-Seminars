@@ -45,7 +45,7 @@ void SortArray (int[,] matr, int rowNumber)
 }
 
 int[,] matrix = new int[3, 5];
-
+Console.WriteLine("Массив: ");
 FillArray(matrix);
 PrintArray(matrix);
 Console.WriteLine();
@@ -55,4 +55,5 @@ for (int i = 0; i < matrix.GetLength(0); i++)
     SortArray(matrix, i);
 }
 Console.WriteLine();
+Console.WriteLine("Упорядоченный массив: ");
 PrintArray(matrix);
